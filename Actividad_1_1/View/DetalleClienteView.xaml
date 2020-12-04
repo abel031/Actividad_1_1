@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Actividad_1_1.View.DetalleClienteView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Nombre"/>
+            <Entry Text="{Binding Cliente.Nombre}"/>
+            <Label Text="DNI"/>
+            <Entry Text="{Binding Cliente.DNI}"/>
+            <Label Text="Apellido1"/>
+            <Entry Text="{Binding Cliente.Apellido1}"/>
+            <Label Text="Apellido2"/>
+            <Entry Text="{Binding Cliente.Apellido2}"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Entry x:Name="tlf" Grid.Row="0" Grid.Column="0"/>
+                <Button Text="Añadir Telefono" Clicked="Add" Grid.Row="0" Grid.Column="1"/>
+                <Button Text="Borrar Telefono" Clicked="Del" Grid.Row="0" Grid.Column="2"/>
+            </Grid>
+            <ListView ItemsSource="{Binding telefonos}"
+                      ItemTapped="Handle_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Numero}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
